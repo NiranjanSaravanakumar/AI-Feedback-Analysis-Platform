@@ -42,19 +42,22 @@ def inspect_dataframe(df: pd.DataFrame) -> Dict[str, Any]:
 
     # Blank / meaningless feedback
     if "feedback_text" in df.columns:
-        blank_mask = (
-            df["feedback_text"].isna()
-            | df["feedback_text"].astype(str).str.strip().str.lower().isin(MEANINGLESS_VALUES)
-            | (df["feedback_text"].astype(str).str.strip().str.len() < 3)
-        )
+        def _is_blank(val):
+            if val is None:
+                return True
+            s = str(val).strip()
+            return s.lower() in MEANINGLESS_VALUES or len(s) < 3
+
+        blank_mask = df["feedback_text"].apply(_is_blank)
         stats["blank_feedback"] = int(blank_mask.sum())
     else:
         stats["blank_feedback"] = 0
 
     # Invalid / unparseable timestamps
     if "timestamp" in df.columns:
-        ts_series = df["timestamp"].astype(str).str.strip()
-        invalid_ts = ts_series.apply(lambda x: not _can_parse_timestamp(x))
+        invalid_ts = df["timestamp"].apply(
+            lambda x: not _can_parse_timestamp(x)
+        )
         stats["invalid_timestamps"] = int(invalid_ts.sum())
     else:
         stats["invalid_timestamps"] = 0
@@ -97,19 +100,18 @@ def clean_dataframe(df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, Any]]:
     # ── Step 3: Drop blank / meaningless feedback_text ───────────────────────
     before = len(df)
     if "feedback_text" in df.columns:
-        blank_mask = (
-            df["feedback_text"].isna()
-            | df["feedback_text"].astype(str).str.strip().str.lower().isin(MEANINGLESS_VALUES)
-            | (df["feedback_text"].astype(str).str.strip().str.len() < 3)
-        )
+        def _is_blank_fb(val):
+            if val is None or (isinstance(val, float)):
+                return True
+            s = str(val).strip()
+            return s.lower() in MEANINGLESS_VALUES or len(s) < 3
+        blank_mask = df["feedback_text"].apply(_is_blank_fb)
         df = df[~blank_mask].copy()
     log["blank_feedback_removed"] = before - len(df)
 
     # ── Step 4: Normalize source column ──────────────────────────────────────
     if "source" in df.columns:
         before_sources = df["source"].copy()
-        df["source"] = df["source"].astype(str).str.strip().str.lower().str.replace(" ", "_")
-        # Map common variants
         source_map = {
             "support": "support_ticket",
             "ticket": "support_ticket",
@@ -122,12 +124,15 @@ def clean_dataframe(df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, Any]]:
             "comment": "survey_comment",
             "survey comment": "survey_comment",
         }
-        df["source"] = df["source"].apply(
-            lambda x: source_map.get(x, x) if x not in VALID_SOURCES else x
-        )
-        # Anything still not valid → keep as-is (don't drop; AI can still process)
+        def _norm_source(val):
+            if val is None or (isinstance(val, float)):
+                return "unknown"
+            s = str(val).strip().lower().replace(" ", "_")
+            return source_map.get(s, s) if s not in VALID_SOURCES else s
+        df["source"] = df["source"].apply(_norm_source)
         changed = (df["source"] != before_sources).sum()
         log["source_normalized"] = int(changed)
+
 
     # ── Step 5: Parse & standardize timestamps ────────────────────────────────
     if "timestamp" in df.columns:
@@ -154,15 +159,29 @@ def clean_dataframe(df: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, Any]]:
 # Private helpers
 # ─────────────────────────────────────────────────────────────────────────────
 
-def _can_parse_timestamp(value: str) -> bool:
-    """Return True if the string can be parsed to a datetime."""
-    if not value or value.lower() in ("nan", "none", "nat", "", "null"):
+def _can_parse_timestamp(value) -> bool:
+    """Return True if the value can be parsed to a datetime. Handles floats and NaT."""
+    # Handle float NaN, None, pandas NaT
+    if value is None:
+        return False
+    if isinstance(value, float):
+        return False  # NaN is a float in pandas
+    try:
+        import pandas as _pd
+        if _pd.isna(value):
+            return False
+    except (TypeError, ValueError):
+        pass
+    # Now safe to stringify
+    s = str(value).strip()
+    if not s or s.lower() in ("nan", "none", "nat", "", "null", "nat"):
         return False
     try:
-        pd.to_datetime(value, infer_datetime_format=True, dayfirst=False)
+        pd.to_datetime(s, infer_datetime_format=True, dayfirst=False)
         return True
     except Exception:
         return False
+
 
 
 def _parse_timestamps(series: pd.Series) -> Tuple[pd.Series, int, int]:

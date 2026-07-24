@@ -22,8 +22,8 @@ CATEGORY_COLORS = [
 ]
 
 CHART_BG = "rgba(0,0,0,0)"
-CHART_FONT_COLOR = "#e2e8f0"
-CHART_GRID_COLOR = "rgba(255,255,255,0.08)"
+CHART_FONT_COLOR = "#334155"
+CHART_GRID_COLOR = "#e2e8f0"
 
 
 def compute_summary_stats(df: pd.DataFrame) -> Dict[str, Any]:
@@ -71,7 +71,7 @@ def build_category_bar_chart(df: pd.DataFrame) -> go.Figure:
         ),
         text=cat_counts["count"],
         textposition="outside",
-        textfont=dict(color=CHART_FONT_COLOR, size=13),
+        textfont=dict(color="#475569", size=12),
     ))
 
     fig.update_layout(
