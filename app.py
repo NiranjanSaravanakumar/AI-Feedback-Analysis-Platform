@@ -35,7 +35,7 @@ st.set_page_config(
 # ─── Session State Init ───────────────────────────────────────────────────────
 def _init():
     defaults = {
-        "dark_mode": False,
+        "dark_mode": True,
         "raw_df": None, "cleaned_df": None, "enriched_df": None,
         "cleaning_log": None, "quality_stats": None,
         "report_bytes": None, "log_bytes": None,
@@ -93,42 +93,42 @@ if dm:
     }
 else:
     T = {
-        "bg":           "#eef2f7",
+        "bg":           "#f0f4f8",
         "card":         "#ffffff",
-        "card2":        "#f4f8ff",
+        "card2":        "#eef3fa",
         "nav_from":     "#1a3a6b",
         "nav_to":       "#1e4d8c",
         "nav_border":   "#1a3a6b",
-        "text":         "#1e293b",
-        "text_muted":   "#64748b",
-        "text_label":   "#64748b",
-        "border":       "#dce8f8",
-        "metric_bg":    "#f4f8ff",
-        "metric_border":"#dce8f8",
-        "metric_val":   "#1a3a6b",
-        "accent":       "#2563eb",
-        "positive":     "#16a34a",
-        "negative":     "#dc2626",
-        "neutral":      "#64748b",
-        "warn":         "#d97706",
-        "upload_bg":    "#f4f8ff",
-        "upload_border":"#a8c4e8",
-        "tbl_header":   "#f0f5fb",
+        "text":         "#0f172a",
+        "text_muted":   "#374151",
+        "text_label":   "#1e293b",
+        "border":       "#c7d8f0",
+        "metric_bg":    "#eef3fa",
+        "metric_border":"#c7d8f0",
+        "metric_val":   "#0f172a",
+        "accent":       "#1d4ed8",
+        "positive":     "#15803d",
+        "negative":     "#b91c1c",
+        "neutral":      "#374151",
+        "warn":         "#b45309",
+        "upload_bg":    "#eef3fa",
+        "upload_border":"#93b4d8",
+        "tbl_header":   "#dde8f5",
         "tbl_row":      "#ffffff",
-        "tbl_row_hover":"#f7faff",
-        "tbl_border":   "#dce8f8",
-        "input_bg":     "#f4f8ff",
-        "input_border": "#a8c4e8",
-        "expander_bg":  "#f4f8ff",
-        "key_warn_bg":  "#fef9ec",
-        "key_warn_border":"#fde68a",
-        "key_warn_text":"#92400e",
-        "key_ok_bg":    "#f0fdf4",
-        "key_ok_border":"#86efac",
-        "key_ok_text":  "#166534",
-        "tab_list":     "#eef2f7",
+        "tbl_row_hover":"#eef3fa",
+        "tbl_border":   "#c7d8f0",
+        "input_bg":     "#ffffff",
+        "input_border": "#93b4d8",
+        "expander_bg":  "#eef3fa",
+        "key_warn_bg":  "#fef3c7",
+        "key_warn_border":"#f59e0b",
+        "key_warn_text":"#78350f",
+        "key_ok_bg":    "#dcfce7",
+        "key_ok_border":"#4ade80",
+        "key_ok_text":  "#14532d",
+        "tab_list":     "#dde8f5",
         "btn_label":    "🌙 Dark",
-        "footer":       "#94a3b8",
+        "footer":       "#374151",
         "sidebar_bg":   "#1a3a6b",
         "sidebar_text": "#e2e8f0",
     }
@@ -173,7 +173,7 @@ div[data-testid="stMainBlockContainer"] {{
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.4rem;
-    border-radius: 0 0 16px 16px;
+    border-radius: 5px 5px 16px 16px;
     box-shadow: 0 3px 18px rgba(0,0,0,0.3);
 }}
 .nav-brand {{ display: flex; align-items: center; gap: 0.65rem; }}
@@ -193,16 +193,19 @@ div[data-testid="stMainBlockContainer"] {{
 /* ─────────────── SECTION TITLE ─────────────── */
 .sec-title {{
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.98rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: {T['accent']} !important;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.9rem;
+    text-align: center;
+    letter-spacing: 0.01em;
 }}
 .sec-sub {{
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: {T['text']} !important;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.7rem;
+    text-align: center;
 }}
 
 /* ─────────────── METRICS ─────────────── */
@@ -295,7 +298,7 @@ div[data-testid="stMainBlockContainer"] {{
 [data-testid="stFileUploader"] section {{
     background: {T['upload_bg']} !important;
     border: 2px dashed {T['upload_border']} !important;
-    border-radius: 10px !important;
+    border-radius: 30px !important;
 }}
 [data-testid="stFileUploader"] section:hover {{
     border-color: {T['accent']} !important;
@@ -320,7 +323,7 @@ div[data-testid="stMainBlockContainer"] {{
 [data-testid="stExpander"] {{
     background: {T['expander_bg']} !important;
     border: 1px solid {T['border']} !important;
-    border-radius: 10px !important;
+    border-radius: 20px !important;
 }}
 [data-testid="stExpander"] summary {{
     color: {T['text']} !important;
@@ -530,8 +533,35 @@ div[data-testid="stInfoMessage"] p {{
 .tbl-row:last-child {{ border-radius: 0 0 8px 8px; }}
 
 .stat-muted {{ color: {T['text_muted']} !important; font-size: 0.78rem; }}
+
+/* ─── CENTER ALL BUTTONS ─── */
+.stButton > button,
+.stDownloadButton > button {{
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}}
+div[data-testid="column"] .stButton > button,
+div[data-testid="column"] .stDownloadButton > button {{
+    width: 100% !important;
+    text-align: center !important;
+}}
+
+/* ─── LIGHT THEME EXPLICIT TEXT OVERRIDES ─── */
+{'/* light: force all text to near-black */' if not dm else ''}
+{'html body, .stApp, .block-container, .card, .sec-title, .sec-sub,' if not dm else ''}
+{'[data-testid="stMarkdownContainer"] p,' if not dm else ''}
+{'[data-testid="stMarkdownContainer"] span,' if not dm else ''}
+{'[data-testid="stMarkdownContainer"] div,' if not dm else ''}
+{'[data-testid="stText"], [data-testid="stCode"] {{' if not dm else ''}
+{'  color: #0f172a !important;' if not dm else ''}
+{'}}' if not dm else ''}
+
+/* Plotly modebar */
+.js-plotly-plot .plotly .modebar {{ background: transparent !important; }}
 </style>
 """, unsafe_allow_html=True)
+
 
 # ─── NAVBAR with theme toggle ─────────────────────────────────────────────────
 nav_col1, nav_col2 = st.columns([8, 1])
@@ -605,50 +635,61 @@ else:
     st.markdown('<div class="key-ok">✅ API Key ready — AI Analysis enabled</div>',
                 unsafe_allow_html=True)
 
+# ── Always show uploader; detect native ✕ removal to clear state ─────────────
 uploaded_file = st.file_uploader(
     "Upload CSV",
     type=["csv"],
-    help="Expected columns: id, timestamp, source, rating, feedback_text",
+    help="Expected columns: id, timestamp, source, rating, feedback_text · Click ✕ to remove",
     label_visibility="collapsed",
 )
 
+# User clicked native ✕ to remove the file → clear all state
+if uploaded_file is None and st.session_state.filename is not None:
+    for k in ["raw_df","cleaned_df","enriched_df","cleaning_log",
+              "quality_stats","report_bytes","log_bytes",
+              "analytics_stats","sample_messages","filename"]:
+        st.session_state[k] = None
+    st.session_state.clean_done = False
+    st.session_state.ai_done   = False
+    st.rerun()
+
 # ── Auto-process on upload ────────────────────────────────────────────────────
 if uploaded_file is not None:
-    if uploaded_file.name != st.session_state.filename:
-        for k in ["cleaned_df","enriched_df","cleaning_log","quality_stats",
-                  "report_bytes","log_bytes","analytics_stats","sample_messages"]:
-            st.session_state[k] = None
-        st.session_state.clean_done = False
-        st.session_state.ai_done   = False
-        st.session_state.filename  = uploaded_file.name
+    for k in ["cleaned_df","enriched_df","cleaning_log","quality_stats",
+              "report_bytes","log_bytes","analytics_stats","sample_messages"]:
+        st.session_state[k] = None
+    st.session_state.clean_done = False
+    st.session_state.ai_done   = False
+    st.session_state.filename  = uploaded_file.name
 
-        try:
-            raw_df = pd.read_csv(uploaded_file, dtype=str)
-            for col in ["rating"]:
-                if col in raw_df.columns:
-                    raw_df[col] = pd.to_numeric(raw_df[col], errors="coerce")
-            st.session_state.raw_df = raw_df
+    try:
+        raw_df = pd.read_csv(uploaded_file, dtype=str)
+        for col in ["rating"]:
+            if col in raw_df.columns:
+                raw_df[col] = pd.to_numeric(raw_df[col], errors="coerce")
+        st.session_state.raw_df = raw_df
 
-            with st.spinner("🧹 Loading & cleaning data…"):
-                cleaned, log = clean_dataframe(raw_df)
-                quality      = inspect_dataframe(raw_df)
-                st.session_state.cleaned_df    = cleaned
-                st.session_state.cleaning_log  = log
-                st.session_state.quality_stats = quality
-                st.session_state.clean_done    = True
-                log_text = build_cleaning_log(log)
-                st.session_state.log_bytes = log_text.encode("utf-8")
+        with st.spinner("🧹 Loading & cleaning data…"):
+            cleaned, log = clean_dataframe(raw_df)
+            quality      = inspect_dataframe(raw_df)
+            st.session_state.cleaned_df    = cleaned
+            st.session_state.cleaning_log  = log
+            st.session_state.quality_stats = quality
+            st.session_state.clean_done    = True
+            log_text = build_cleaning_log(log)
+            st.session_state.log_bytes = log_text.encode("utf-8")
 
-            removed = log['rows_loaded'] - log['final_rows']
-            st.success(
-                f"✅ **{uploaded_file.name}** — "
-                f"{log['rows_loaded']:,} rows loaded, {removed:,} removed, "
-                f"**{log['final_rows']:,} clean rows ready**"
-            )
-        except Exception as e:
-            st.error(f"❌ Error processing CSV: {e}")
-            st.code(traceback.format_exc())
-            st.session_state.raw_df = None
+        removed = log['rows_loaded'] - log['final_rows']
+        st.success(
+            f"✅ **{uploaded_file.name}** — "
+            f"{log['rows_loaded']:,} rows loaded, {removed:,} removed, "
+            f"**{log['final_rows']:,} clean rows ready**"
+        )
+    except Exception as e:
+        st.error(f"❌ Error processing CSV: {e}")
+        st.code(traceback.format_exc())
+        st.session_state.filename = None
+        st.session_state.raw_df   = None
 
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -690,18 +731,27 @@ if st.session_state.clean_done and st.session_state.quality_stats:
     </div>
     """, unsafe_allow_html=True)
 
-    with st.expander("📋 Cleaning Summary"):
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("Duplicates Removed",  log.get("duplicate_rows_removed", 0))
-        c2.metric("Blank Removed",        log.get("blank_feedback_removed", 0))
-        c3.metric("Timestamps Fixed",     log.get("invalid_timestamps_normalized", 0))
-        c4.metric("Final Clean Rows",     f"{final_r:,}")
 
-    with st.expander("🔍 Preview Cleaned Data (first 10 rows)"):
-        st.dataframe(
-            st.session_state.cleaned_df.head(10),
-            use_container_width=True, hide_index=True,
-        )
+    # ── Cleaning Summary (always visible) ────────────────────────────────────
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown('<div class="sec-title">📋 Cleaning Summary</div>', unsafe_allow_html=True)
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Duplicates Removed",  log.get("duplicate_rows_removed", 0))
+    c2.metric("Blank Removed",        log.get("blank_feedback_removed", 0))
+    c3.metric("Timestamps Fixed",     log.get("invalid_timestamps_normalized", 0))
+    c4.metric("Final Clean Rows",     f"{final_r:,}")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # ── Preview Table (always visible) ───────────────────────────────────────
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown('<div class="sec-title">🔍 Preview Cleaned Data (first 10 rows)</div>',
+                unsafe_allow_html=True)
+    st.dataframe(
+        st.session_state.cleaned_df.head(10),
+        use_container_width=True, hide_index=True,
+    )
+    st.markdown('</div>', unsafe_allow_html=True)
+
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CARD 3 — AI Analysis Button
@@ -713,13 +763,22 @@ if st.session_state.clean_done and not st.session_state.ai_done:
     n_rows    = len(st.session_state.cleaned_df)
     n_batches = (n_rows + 19) // 20
     st.markdown(
-        f'<p class="stat-muted">{n_rows:,} rows ready · ~{n_batches} API calls '
-        f'(batches of 20) · Model: {model_choice.split("/")[-1]}</p>',
+        f'<p style="text-align:center;color:{T["text_muted"]};font-size:0.85rem;margin-bottom:1rem;">'
+        f'{n_rows:,} rows ready · ~{n_batches} API calls (batches of 20) '
+        f'· Model: {model_choice.split("/")[-1]}</p>',
         unsafe_allow_html=True,
     )
 
-    if st.button("[ Perform AI Analysis ]", key="btn_analyze",
-                 disabled=not nvidia_key):
+    # Center the button using a narrow middle column
+    _l, _c, _r = st.columns([1, 2, 1])
+    with _c:
+        clicked_analyze = st.button(
+            "🚀 Perform AI Analysis",
+            key="btn_analyze",
+            disabled=not nvidia_key,
+            use_container_width=True,
+        )
+
         df_to_enrich = st.session_state.cleaned_df.copy()
         total_rows   = len(df_to_enrich)
 
@@ -948,8 +1007,7 @@ if st.session_state.ai_done and st.session_state.enriched_df is not None:
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown(f"""
 <div style="text-align:center;color:{T['footer']};font-size:0.72rem;padding:1rem 0 0.5rem;">
-  Customer Feedback Intelligence System &nbsp;·&nbsp;
+  
   NVIDIA NIM · Streamlit · Plotly · pandas
-  &nbsp;|&nbsp; {'🌙 Dark Mode' if dm else '☀️ Light Mode'}
 </div>
 """, unsafe_allow_html=True)
