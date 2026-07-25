@@ -27,7 +27,7 @@ load_dotenv()
 
 st.set_page_config(
     page_title="Customer Feedback Intelligence System",
-    page_icon="📊",
+    page_icon="",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
@@ -52,85 +52,85 @@ dm = st.session_state.dark_mode   # shorthand
 # ─── Theme Palette ───────────────────────────────────────────────────────────
 if dm:
     T = {
-        "bg":           "#0d1117",
-        "card":         "#161b22",
-        "card2":        "#1c2230",
-        "nav_from":     "#0d1117",
-        "nav_to":       "#1a2a4a",
-        "nav_border":   "#30363d",
-        "text":         "#e6edf3",
-        "text_muted":   "#8b949e",
-        "text_label":   "#8b949e",
-        "border":       "#30363d",
-        "metric_bg":    "#1c2230",
-        "metric_border":"#30363d",
-        "metric_val":   "#e6edf3",
-        "accent":       "#58a6ff",
-        "positive":     "#3fb950",
-        "negative":     "#f85149",
-        "neutral":      "#8b949e",
-        "warn":         "#d29922",
-        "upload_bg":    "#1c2230",
-        "upload_border":"#30363d",
-        "tbl_header":   "#1c2230",
-        "tbl_row":      "#161b22",
-        "tbl_row_hover":"#1c2230",
-        "tbl_border":   "#30363d",
-        "input_bg":     "#0d1117",
-        "input_border": "#30363d",
-        "expander_bg":  "#1c2230",
-        "key_warn_bg":  "#2d2007",
-        "key_warn_border":"#d29922",
-        "key_warn_text":"#e3b341",
-        "key_ok_bg":    "#0a2818",
-        "key_ok_border":"#3fb950",
-        "key_ok_text":  "#3fb950",
-        "tab_list":     "#1c2230",
-        "btn_label":    "☀️ Light",
-        "footer":       "#484f58",
-        "sidebar_bg":   "#161b22",
-        "sidebar_text": "#e6edf3",
+        "bg":           "#01201A",
+        "card":         "#01352c",
+        "card2":        "#02453A",
+        "nav_from":     "#01201A",
+        "nav_to":       "#01352c",
+        "nav_border":   "#02453A",
+        "text":         "#e1eacd",
+        "text_muted":   "#bad8b6",
+        "text_label":   "#bad8b6",
+        "border":       "#02453A",
+        "metric_bg":    "#02453A",
+        "metric_border":"#02453A",
+        "metric_val":   "#e1eacd",
+        "accent":       "#61b390",
+        "positive":     "#61b390",
+        "negative":     "#FF6B6B",
+        "neutral":      "#bad8b6",
+        "warn":         "#FF9A00",
+        "upload_bg":    "#02453A",
+        "upload_border":"#61b390",
+        "tbl_header":   "#02453A",
+        "tbl_row":      "#01352c",
+        "tbl_row_hover":"#02453A",
+        "tbl_border":   "#02453A",
+        "input_bg":     "#01201A",
+        "input_border": "#02453A",
+        "expander_bg":  "#02453A",
+        "key_warn_bg":  "#2A1A0B",
+        "key_warn_border":"#FF9A00",
+        "key_warn_text":"#FF9A00",
+        "key_ok_bg":    "#014237",
+        "key_ok_border":"#61b390",
+        "key_ok_text":  "#61b390",
+        "tab_list":     "#02453A",
+        "btn_label":    "Light Mode",
+        "footer":       "#bad8b6",
+        "sidebar_bg":   "#01352c",
+        "sidebar_text": "#e1eacd",
     }
 else:
     T = {
-        "bg":           "#eef2f7",
-        "card":         "#ffffff",
-        "card2":        "#f4f8ff",
-        "nav_from":     "#1a3a6b",
-        "nav_to":       "#1e4d8c",
-        "nav_border":   "#1a3a6b",
-        "text":         "#1e293b",
-        "text_muted":   "#64748b",
-        "text_label":   "#64748b",
-        "border":       "#dce8f8",
-        "metric_bg":    "#f4f8ff",
-        "metric_border":"#dce8f8",
-        "metric_val":   "#1a3a6b",
-        "accent":       "#2563eb",
-        "positive":     "#16a34a",
-        "negative":     "#dc2626",
-        "neutral":      "#64748b",
-        "warn":         "#d97706",
-        "upload_bg":    "#f4f8ff",
-        "upload_border":"#a8c4e8",
-        "tbl_header":   "#f0f5fb",
-        "tbl_row":      "#ffffff",
-        "tbl_row_hover":"#f7faff",
-        "tbl_border":   "#dce8f8",
-        "input_bg":     "#f4f8ff",
-        "input_border": "#a8c4e8",
-        "expander_bg":  "#f4f8ff",
-        "key_warn_bg":  "#fef9ec",
-        "key_warn_border":"#fde68a",
-        "key_warn_text":"#92400e",
-        "key_ok_bg":    "#f0fdf4",
-        "key_ok_border":"#86efac",
-        "key_ok_text":  "#166534",
-        "tab_list":     "#eef2f7",
-        "btn_label":    "🌙 Dark",
-        "footer":       "#94a3b8",
-        "sidebar_bg":   "#1a3a6b",
-        "sidebar_text": "#e2e8f0",
+        "bg":           "#e1eacd",
+        "card":         "#f2f6eb",
+        "card2":        "#bad8b6",
+        "nav_from":     "#61b390",
+        "nav_to":       "#01352c",
+        "nav_border":   "#61b390",
+        "text":         "#01352c",
+        "text_muted":   "#024a3e",
+        "text_label":   "#024a3e",
+        "border":       "#bad8b6",
+        "metric_bg":    "#bad8b6",
+        "metric_border":"#bad8b6",
+        "metric_val":   "#01352c",
+        "accent":       "#61b390",
+        "positive":     "#61b390",
+        "negative":     "#C05621",
+        "neutral":      "#024a3e",
+        "warn":         "#DD6B20",
+        "upload_bg":    "#bad8b6",
+        "upload_border":"#61b390",
+        "tbl_header":   "#bad8b6",
+        "tbl_row":      "#f2f6eb",
+        "tbl_row_hover":"#bad8b6",
+        "tbl_border":   "#bad8b6",
+        "input_bg":     "#f2f6eb",
+        "input_border": "#bad8b6",
+        "expander_bg":  "#bad8b6",
+        "key_warn_bg":  "#FFFAF0",
+        "key_warn_border":"#F6AD55",
+        "key_warn_text":"#DD6B20",
+        "key_ok_bg":    "#bad8b6",
+        "key_ok_border":"#61b390",
+        "key_ok_text":  "#01352c",
+        "tab_list":     "#bad8b6",
+        "btn_label":    "Dark Mode",
+        "footer":       "#024a3e",
+        "sidebar_bg":   "#61b390",
+        "sidebar_text": "#01352c",
     }
 
 # ─── Inject CSS ───────────────────────────────────────────────────────────────
@@ -244,7 +244,7 @@ div[data-testid="stMainBlockContainer"] {{
 
 /* ─────────────── BUTTONS ─────────────── */
 .stButton > button {{
-    background: linear-gradient(135deg, #1a3a6b 0%, #2563eb 100%) !important;
+    background: linear-gradient(135deg, {T['accent']} 0%, {T['nav_to']} 100%) !important;
     color: #ffffff !important;
     border: none !important;
     border-radius: 9px !important;
@@ -255,12 +255,12 @@ div[data-testid="stMainBlockContainer"] {{
     width: 100% !important;
     letter-spacing: 0.03em !important;
     transition: all 0.18s ease !important;
-    box-shadow: 0 3px 12px rgba(37,99,235,0.35) !important;
+    box-shadow: 0 3px 12px rgba(221,107,32,0.35) !important;
     cursor: pointer !important;
 }}
 .stButton > button:hover {{
-    background: linear-gradient(135deg, #15306a 0%, #1d4ed8 100%) !important;
-    box-shadow: 0 6px 22px rgba(37,99,235,0.5) !important;
+    background: linear-gradient(135deg, {T['accent']} 0%, {T['nav_to']} 100%) !important;
+    box-shadow: 0 6px 22px rgba(221,107,32,0.5) !important;
     transform: translateY(-1px) !important;
 }}
 .stButton > button:disabled {{
@@ -284,10 +284,10 @@ div[data-testid="stMainBlockContainer"] {{
     transition: all 0.18s ease !important;
 }}
 .stDownloadButton > button:hover {{
-    background: #2563eb !important;
+    background: {T['accent']} !important;
     color: #ffffff !important;
-    border-color: #2563eb !important;
-    box-shadow: 0 4px 14px rgba(37,99,235,0.4) !important;
+    border-color: {T['accent']} !important;
+    box-shadow: 0 4px 14px rgba(97, 179, 144, 0.4) !important;
     transform: translateY(-1px) !important;
 }}
 
@@ -308,7 +308,7 @@ div[data-testid="stMainBlockContainer"] {{
 
 /* ─────────────── PROGRESS BAR ─────────────── */
 .stProgress > div > div {{
-    background: linear-gradient(90deg, #1a3a6b, #3b82f6) !important;
+    background: linear-gradient(90deg, {T['nav_to']}, {T['accent']}) !important;
     border-radius: 999px !important;
 }}
 .stProgress > div {{
@@ -437,7 +437,7 @@ div[data-testid="stInfoMessage"] p {{
     background: transparent !important;
 }}
 .stTabs [aria-selected="true"] {{
-    background: linear-gradient(135deg,#1a3a6b,#2563eb) !important;
+    background: linear-gradient(135deg, {T['accent']} 0%, {T['nav_to']} 100%) !important;
     color: #ffffff !important;
 }}
 .stTabs [data-baseweb="tab-panel"] {{
@@ -539,7 +539,7 @@ with nav_col1:
     st.markdown(f"""
     <div class="top-navbar">
       <div class="nav-brand">
-        <div class="nav-icon">📊</div>
+        <div class="nav-icon"></div>
         <div class="nav-title">Customer Feedback Intelligence System</div>
       </div>
     </div>
@@ -555,18 +555,18 @@ with nav_col2:
 
 # ─── SIDEBAR — API Key ────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown(f"### ⚙️ Settings")
+    st.markdown(f"###  Settings")
     st.markdown("---")
     env_key    = os.getenv("NVIDIA_API_KEY", "")
     sidebar_key = st.text_input(
-        "🔑 NVIDIA API Key",
+        " NVIDIA API Key",
         value=env_key,
         type="password",
         placeholder="nvapi-xxxxxxxxxxxxxxxxxxxx",
         help="Auto-reads from .env · Enter here to override · Never shown in main UI",
     )
     model_choice = st.selectbox(
-        "🤖 Model",
+        " Model",
         options=[
             "meta/llama-3.1-8b-instruct",
             "meta/llama-3.1-70b-instruct",
@@ -576,7 +576,7 @@ with st.sidebar:
         index=0,
     )
     status_color = "#3fb950" if sidebar_key else "#d29922"
-    status_icon  = "✅ API Key loaded" if sidebar_key else "⚠️ No API Key set"
+    status_icon  = " API Key loaded" if sidebar_key else " No API Key set"
     st.markdown(f'<p style="color:{status_color};font-size:0.8rem;">{status_icon}</p>',
                 unsafe_allow_html=True)
     st.markdown("---")
@@ -592,17 +592,17 @@ nvidia_key = sidebar_key
 # CARD 1 — Feedback Center / Upload
 # ═══════════════════════════════════════════════════════════════════════════════
 st.markdown('<div class="card">', unsafe_allow_html=True)
-st.markdown('<div class="sec-title">📊 Feedback Center</div>', unsafe_allow_html=True)
-st.markdown(f'<div class="sec-sub">📁 Data Ingestion</div>', unsafe_allow_html=True)
+st.markdown('<div class="sec-title"> Feedback Center</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="sec-sub"> Data Ingestion</div>', unsafe_allow_html=True)
 
 if not nvidia_key:
     st.markdown(
-        '<div class="key-warn">⚠️ <b>No NVIDIA API Key.</b> Open the ← sidebar and enter your key, '
+        '<div class="key-warn"> <b>No NVIDIA API Key.</b> Open the ← sidebar and enter your key, '
         'or add to <code>.env</code> as <code>NVIDIA_API_KEY=nvapi-xxx</code></div>',
         unsafe_allow_html=True,
     )
 else:
-    st.markdown('<div class="key-ok">✅ API Key ready — AI Analysis enabled</div>',
+    st.markdown('<div class="key-ok"> API Key ready — AI Analysis enabled</div>',
                 unsafe_allow_html=True)
 
 uploaded_file = st.file_uploader(
@@ -629,7 +629,7 @@ if uploaded_file is not None:
                     raw_df[col] = pd.to_numeric(raw_df[col], errors="coerce")
             st.session_state.raw_df = raw_df
 
-            with st.spinner("🧹 Loading & cleaning data…"):
+            with st.spinner(" Loading & cleaning data…"):
                 cleaned, log = clean_dataframe(raw_df)
                 quality      = inspect_dataframe(raw_df)
                 st.session_state.cleaned_df    = cleaned
@@ -641,12 +641,12 @@ if uploaded_file is not None:
 
             removed = log['rows_loaded'] - log['final_rows']
             st.success(
-                f"✅ **{uploaded_file.name}** — "
+                f" **{uploaded_file.name}** — "
                 f"{log['rows_loaded']:,} rows loaded, {removed:,} removed, "
                 f"**{log['final_rows']:,} clean rows ready**"
             )
         except Exception as e:
-            st.error(f"❌ Error processing CSV: {e}")
+            st.error(f" Error processing CSV: {e}")
             st.code(traceback.format_exc())
             st.session_state.raw_df = None
 
@@ -668,7 +668,7 @@ if st.session_state.clean_done and st.session_state.quality_stats:
 
     st.markdown(f"""
     <div class="card">
-      <div class="sec-title">📊 Dataset Snapshot</div>
+      <div class="sec-title"> Dataset Snapshot</div>
       <div class="metric-grid">
         <div class="metric-card">
           <div class="metric-lbl">Total Entries</div>
@@ -690,14 +690,14 @@ if st.session_state.clean_done and st.session_state.quality_stats:
     </div>
     """, unsafe_allow_html=True)
 
-    with st.expander("📋 Cleaning Summary"):
+    with st.expander(" Cleaning Summary"):
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("Duplicates Removed",  log.get("duplicate_rows_removed", 0))
         c2.metric("Blank Removed",        log.get("blank_feedback_removed", 0))
         c3.metric("Timestamps Fixed",     log.get("invalid_timestamps_normalized", 0))
         c4.metric("Final Clean Rows",     f"{final_r:,}")
 
-    with st.expander("🔍 Preview Cleaned Data (first 10 rows)"):
+    with st.expander(" Preview Cleaned Data (first 10 rows)"):
         st.dataframe(
             st.session_state.cleaned_df.head(10),
             use_container_width=True, hide_index=True,
@@ -708,7 +708,7 @@ if st.session_state.clean_done and st.session_state.quality_stats:
 # ═══════════════════════════════════════════════════════════════════════════════
 if st.session_state.clean_done and not st.session_state.ai_done:
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.markdown('<div class="sec-title">🤖 AI Analysis</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-title"> AI Analysis</div>', unsafe_allow_html=True)
 
     n_rows    = len(st.session_state.cleaned_df)
     n_batches = (n_rows + 19) // 20
@@ -741,7 +741,7 @@ if st.session_state.clean_done and not st.session_state.ai_done:
                 prog_bar.progress(pct)
                 status_txt.markdown(f"**Analyzed {done:,} / {total:,} rows ({pct*100:.1f}%)**")
                 elapsed_txt.markdown(
-                    f"<span class='stat-muted'>⏱ {elapsed:.0f}s elapsed · "
+                    f"<span class='stat-muted'> {elapsed:.0f}s elapsed · "
                     f"{rate:.1f} rows/s · ETA {eta:.0f}s</span>",
                     unsafe_allow_html=True,
                 )
@@ -763,10 +763,10 @@ if st.session_state.clean_done and not st.session_state.ai_done:
             st.session_state.ai_done     = True
 
             prog_bar.progress(1.0)
-            status_txt.markdown("**✅ AI analysis complete!**")
+            status_txt.markdown("** AI analysis complete!**")
             elapsed_txt.empty()
 
-            with st.spinner("📝 Generating report…"):
+            with st.spinner(" Generating report…"):
                 stats   = compute_summary_stats(enriched)
                 samples = get_sample_messages(enriched)
                 rep     = generate_report(
@@ -776,11 +776,11 @@ if st.session_state.clean_done and not st.session_state.ai_done:
                 st.session_state.analytics_stats = stats
                 st.session_state.sample_messages = samples
 
-            st.success(f"🎉 {total_rows:,} rows enriched in {time.time()-t0:.0f}s")
+            st.success(f" {total_rows:,} rows enriched in {time.time()-t0:.0f}s")
             st.rerun()
 
         except Exception as e:
-            st.error(f"❌ AI enrichment failed: {e}")
+            st.error(f" AI enrichment failed: {e}")
             st.code(traceback.format_exc())
 
     st.markdown('</div>', unsafe_allow_html=True)
@@ -803,24 +803,24 @@ if st.session_state.ai_done and st.session_state.enriched_df is not None:
 
     st.markdown(f"""
     <div class="card">
-      <div class="sec-title">📊 Feedback Dashboard</div>
+      <div class="sec-title"> Feedback Dashboard</div>
       <div class="metric-grid">
         <div class="metric-card">
           <div class="metric-lbl">Total Analyzed</div>
           <div class="metric-val">{total:,}</div>
         </div>
         <div class="metric-card">
-          <div class="metric-lbl">Positive 😊</div>
+          <div class="metric-lbl">Positive </div>
           <div class="metric-val ok">{pos_c:,}</div>
           <div class="metric-sub">{pos_p}%</div>
         </div>
         <div class="metric-card">
-          <div class="metric-lbl">Negative 😞</div>
+          <div class="metric-lbl">Negative </div>
           <div class="metric-val danger">{neg_c:,}</div>
           <div class="metric-sub">{neg_p}%</div>
         </div>
         <div class="metric-card">
-          <div class="metric-lbl">Neutral 😐</div>
+          <div class="metric-lbl">Neutral </div>
           <div class="metric-val warn">{neu_c:,}</div>
           <div class="metric-sub">{neu_p}%</div>
         </div>
@@ -866,12 +866,12 @@ if st.session_state.ai_done and st.session_state.enriched_df is not None:
 
     # ── Sample Feedback Logs ──────────────────────────────────────────────────
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.markdown('<div class="sec-title">📋 Sample Feedback Logs</div>',
+    st.markdown('<div class="sec-title"> Sample Feedback Logs</div>',
                 unsafe_allow_html=True)
 
     tabs_labels = list(samples.keys()) if samples else []
     if tabs_labels:
-        tabs = st.tabs([f"📌 {t}" for t in tabs_labels])
+        tabs = st.tabs([f" {t}" for t in tabs_labels])
         for tab, cat in zip(tabs, tabs_labels):
             with tab:
                 msgs = samples.get(cat, [])
@@ -896,7 +896,7 @@ if st.session_state.ai_done and st.session_state.enriched_df is not None:
                       <span><span class="badge badge-{sent}">{sent.capitalize()}</span></span>
                     </div>""", unsafe_allow_html=True)
 
-    with st.expander(f"📄 Full Enriched Dataset ({len(enriched):,} rows)"):
+    with st.expander(f" Full Enriched Dataset ({len(enriched):,} rows)"):
         st.dataframe(
             enriched, use_container_width=True, hide_index=True,
             column_config={
@@ -911,13 +911,13 @@ if st.session_state.ai_done and st.session_state.enriched_df is not None:
 
     # ── Download Row ──────────────────────────────────────────────────────────
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.markdown('<div class="sec-title">⬇️ Download Results</div>',
+    st.markdown('<div class="sec-title"> Download Results</div>',
                 unsafe_allow_html=True)
 
     dl1, dl2, dl3 = st.columns(3)
     with dl1:
         st.download_button(
-            "⬇️ Cleaned CSV",
+            " Cleaned CSV",
             data=enriched.to_csv(index=False).encode("utf-8"),
             file_name="customer_feedback_processed.csv",
             mime="text/csv", key="dl_csv",
@@ -926,7 +926,7 @@ if st.session_state.ai_done and st.session_state.enriched_df is not None:
     with dl2:
         if st.session_state.report_bytes:
             st.download_button(
-                "⬇️ Summary Report (DOCX)",
+                " Summary Report (DOCX)",
                 data=st.session_state.report_bytes,
                 file_name="customer_feedback_report.docx",
                 mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -936,7 +936,7 @@ if st.session_state.ai_done and st.session_state.enriched_df is not None:
     with dl3:
         if st.session_state.log_bytes:
             st.download_button(
-                "⬇️ Cleaning Log (TXT)",
+                " Cleaning Log (TXT)",
                 data=st.session_state.log_bytes,
                 file_name="cleaning_log.txt",
                 mime="text/plain", key="dl_log",
@@ -950,6 +950,6 @@ st.markdown(f"""
 <div style="text-align:center;color:{T['footer']};font-size:0.72rem;padding:1rem 0 0.5rem;">
   Customer Feedback Intelligence System &nbsp;·&nbsp;
   NVIDIA NIM · Streamlit · Plotly · pandas
-  &nbsp;|&nbsp; {'🌙 Dark Mode' if dm else '☀️ Light Mode'}
+  &nbsp;|&nbsp; {'Dark Mode' if dm else 'Light Mode'}
 </div>
 """, unsafe_allow_html=True)
