@@ -35,7 +35,7 @@ st.set_page_config(
 # ─── Session State Init ───────────────────────────────────────────────────────
 def _init():
     defaults = {
-        "dark_mode": False,
+        "dark_mode": True,
         "raw_df": None, "cleaned_df": None, "enriched_df": None,
         "cleaning_log": None, "quality_stats": None,
         "report_bytes": None, "log_bytes": None,
